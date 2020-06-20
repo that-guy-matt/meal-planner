@@ -5,35 +5,21 @@ mealButton.addEventListener("click", () => {
   getMeal();
 });
 
-// async function getMeal() {
-//   //fetch a meal from themealdb
-//   let response = await fetch(
-//     "https://www.themealdb.com/api/json/v1/1/random.php"
-//   );
-
-//   if (response.ok) {
-//     let json = await response.json();
-//     createMeal(json.meals[0]);
-//   } else {
-//     console.log("HTTP-Error: " + response.status);
-//   }
-//   //     //parse json meal info
-//   //     .then((res) => res.json())
-//   //     .then((res) => {
-//   //       createMeal(res.meals[0]);
-//   //     })
-//   //     .catch((e) => {
-//   //       console.warn(e);
-//   //     });
-// }
+// get meal using promise
+function getMeal() {
+  fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+    .then((res) => res.json())
+    .then((res) => {
+      createMeal(res.meals[0]);
+    })
+    .catch((e) => {
+      console.warn(e);
+    });
+}
 
 function createMeal(meal) {
   let ingredients = [];
   //get incredients up to 20
-  //TODO
-  //this should be changed.
-  //probably shoud loop through the
-  //entire json object adding ingredients
   for (let i = 1; i <= 20; i++) {
     if (meal[`strIngredient${i}`]) {
       ingredients.push(
