@@ -5,27 +5,27 @@ mealButton.addEventListener("click", () => {
   getMeal();
 });
 
-async function getMeal() {
-  //fetch a meal from themealdb
-  let response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/random.php"
-  );
+// async function getMeal() {
+//   //fetch a meal from themealdb
+//   let response = await fetch(
+//     "https://www.themealdb.com/api/json/v1/1/random.php"
+//   );
 
-  if (response.ok) {
-    let json = await response.json();
-    createMeal(json.meals[0]);
-  } else {
-    console.log("HTTP-Error: " + response.status);
-  }
-  //     //parse json meal info
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       createMeal(res.meals[0]);
-  //     })
-  //     .catch((e) => {
-  //       console.warn(e);
-  //     });
-}
+//   if (response.ok) {
+//     let json = await response.json();
+//     createMeal(json.meals[0]);
+//   } else {
+//     console.log("HTTP-Error: " + response.status);
+//   }
+//   //     //parse json meal info
+//   //     .then((res) => res.json())
+//   //     .then((res) => {
+//   //       createMeal(res.meals[0]);
+//   //     })
+//   //     .catch((e) => {
+//   //       console.warn(e);
+//   //     });
+// }
 
 function createMeal(meal) {
   let ingredients = [];
