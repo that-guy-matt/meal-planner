@@ -11,6 +11,10 @@ function getMeal() {
     .then((res) => res.json())
     .then((res) => {
       createMeal(res.meals[0]);
+      if (res.meals[0].strCategory == "Dessert") {
+        console.log("dessert rejected.");
+        getMeal();
+      }
     })
     .catch((e) => {
       console.warn(e);
