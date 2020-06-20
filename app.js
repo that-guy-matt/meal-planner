@@ -21,6 +21,22 @@ function getMeal() {
     });
 }
 
+// get dessert... not used yet
+function getDessert() {
+  fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+    .then((res) => res.json())
+    .then((res) => {
+      createMeal(res.meals[0]);
+      if (res.meals[0].strCategory !== "Dessert") {
+        console.log("skipping dinner... looking for dessert");
+        getDessert();
+      }
+    })
+    .catch((e) => {
+      console.warn(e);
+    });
+}
+
 function createMeal(meal) {
   let ingredients = [];
   //get incredients up to 20
