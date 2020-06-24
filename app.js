@@ -94,3 +94,30 @@ function createMeal(meal) {
     }`;
   mealContainer.innerHTML = newInnerHTML;
 }
+
+class Meal {
+  constructor(recipe) {
+    this.recipe = recipe;
+    //this.createMeal();
+  }
+  createMeal() {
+    // this.thumb = ;
+    // this.ingredients = [];
+  }
+}
+
+// TESTING CLASSES
+function testClass() {
+  fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+    .then((res) => res.json())
+    .then((res) => {
+      var funcMeal = new Meal(res.meals[0]);
+      console.log(funcMeal);
+      //return res.meals[0];
+    })
+    .catch((e) => {
+      console.warn(e);
+    });
+}
+
+let testMeal = new Meal(testClass());
